@@ -57,7 +57,8 @@
 			[
 				0,
 				1,
-				4
+				4,
+				6
 			]
 		}
 	],
@@ -96,7 +97,8 @@
 			[
 				0,
 				1,
-				4
+				4,
+				6
 			]
 		},
 		{
@@ -104,7 +106,15 @@
 			"sourceIndexes" : 
 			[
 				2,
-				3
+				3,
+				7
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				5
 			]
 		}
 	],
@@ -137,6 +147,22 @@
 			"compileGroupIndex" : 0,
 			"path" : "Sources/SelectDataType.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Sources/test.txt",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Sources/ReadFile.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Headers/ReadFile.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

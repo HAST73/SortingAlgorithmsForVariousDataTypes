@@ -1,5 +1,6 @@
 #include <iostream>
 #include "../Headers/Menu.h"
+#include "../Headers/SelectDataType.h"
 
 using namespace std;
 
@@ -25,11 +26,16 @@ int Menu::getChoice() {
 }
 
 void Menu::processChoice(int choice) {
+    SelectDataType selectDataType;
     switch (choice) {
         case 1:
+        {
             cout << "Option 1 selected" << endl;
-            // Tutaj możesz umieścić kod związany z opcją 1
+            selectDataType.selectDataType();
+            int selection = selectDataType.getSelection();
+            selectDataType.processSelectFromLoadedFile(selection);
             break;
+        }
         case 2:
             cout << "Option 2 selected" << endl;
             // Tutaj możesz umieścić kod związany z opcją 2
