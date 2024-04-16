@@ -1,3 +1,3 @@
-C:/Users/Public/Documents/CLion_Projects/Project_AIZO/cmake-build-debug/CMakeFiles/Project_AIZO.dir
-C:/Users/Public/Documents/CLion_Projects/Project_AIZO/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Public/Documents/CLion_Projects/Project_AIZO/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Konrad/Desktop/Projekt AiZO/Project_AIZO/cmake-build-debug/CMakeFiles/Project_AIZO.dir
+C:/Users/Konrad/Desktop/Projekt AiZO/Project_AIZO/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Konrad/Desktop/Projekt AiZO/Project_AIZO/cmake-build-debug/CMakeFiles/rebuild_cache.dir
