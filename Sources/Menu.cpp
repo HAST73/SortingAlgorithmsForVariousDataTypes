@@ -1,6 +1,7 @@
 #include <iostream>
 #include "../Headers/Menu.h"
 #include "../Headers/SelectDataType.h"
+#include "../Headers/ViewArrays.h"
 
 using namespace std;
 
@@ -10,9 +11,9 @@ void Menu::generateGeneralMenu() {
     cout << "\nMenu:" << endl;
     cout << "------------------------" << endl;
     cout << "1. Load data from a file" << endl;
-    cout << "2. Generate arrays with random values" << endl;
-    cout << "3. View arrays" << endl;
-    cout << "4. Sort arrays" << endl;
+//    cout << "2. Generate arrays with random values" << endl;
+//    cout << "3. View arrays" << endl;
+//    cout << "4. Sort arrays" << endl;
     cout << "5. Exit the program" << endl;
     cout << "------------------------" << endl;
     cout << "Select an option: ";
@@ -36,14 +37,13 @@ void Menu::processChoice(int choice) {
             selectDataType.processSelectFromLoadedFile(selection);
             break;
         }
-        case 2:
-            cout << "Option 2 selected" << endl;
-            // Tutaj możesz umieścić kod związany z opcją 2
-            break;
-        case 3:
-            cout << "Option 3 selected" << endl;
-            // Tutaj możesz umieścić kod związany z opcją 3
-            break;
+//        case 2:
+//            cout << "Option 2 selected" << endl;
+//            // Tutaj możesz umieścić kod związany z opcją 2
+//            break;
+//        case 3:
+//            cout << "Option 3 selected" << endl;
+//            break;
         case 4:
             cout << "Option 4 selected" << endl;
             // Tutaj możesz umieścić kod związany z opcją 4

@@ -4,16 +4,19 @@ using namespace std;
 
 template<typename T>
 vector<T> ReadFile::readData(const string& filename) {
-    vector<T> data;
     ifstream file(filename);
-
     if (!file.is_open()) {
         throw runtime_error("Unable to open file: " + filename);
     }
 
-    T value;
-    while (file >> value) {
-        data.push_back(value);
+    int size;
+    file >> size; // Czytanie rozmiaru tablicy
+
+    vector<T> data(size); // Utworzenie wektora o określonym rozmiarze
+    for (int i = 0; i < size; ++i) {
+        if (!(file >> data[i])) {
+            throw runtime_error("Error reading data from file.");
+        }
     }
 
     file.close();

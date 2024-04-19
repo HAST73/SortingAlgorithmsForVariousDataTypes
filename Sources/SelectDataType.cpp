@@ -1,7 +1,12 @@
 #include <iostream>
 #include "../Headers/SelectDataType.h"
+#include "../Headers/SelectWriteOrUse.h"
 
 using namespace std;
+
+vector<int> globalIntData;
+vector<float> globalFloatData;
+vector<char> globalCharData;
 
 void SelectDataType::selectDataType() {
     cout << "\nMenu:" << endl;
@@ -28,28 +33,37 @@ void SelectDataType::processSelectFromLoadedFile(int selection) {
     filename = basePath + filename;
 
     try {
+        SelectWriteOrUse<int> intOptions;
+        SelectWriteOrUse<float> floatOptions;
+        SelectWriteOrUse<char> charOptions;
+
         switch (selection) {
             case 1: {
-                cout << "Option 1 selected - int" << endl;
-                vector<int> data = fileReader.readData<int>(filename);
-
+                globalIntData = fileReader.readData<int>(filename);
+                SelectWriteOrUse<int> intOptions;
+                intOptions.displayMenu();
+                int choice = intOptions.getUserChoice();
+                intOptions.processChoice(choice, globalIntData);
                 break;
             }
             case 2: {
-                cout << "Option 2 selected - float" << endl;
-                vector<float> data = fileReader.readData<float>(filename);
-                // Process data as needed.
+                globalFloatData = fileReader.readData<float>(filename);
+                SelectWriteOrUse<float> floatOptions;
+                floatOptions.displayMenu();
+                int choice = floatOptions.getUserChoice(); // Zmienna 'choice' jest teraz zagnieżdżona w bloku.
+                floatOptions.processChoice(choice, globalFloatData);
                 break;
             }
             case 3: {
-                cout << "Option 3 selected - char" << endl;
-                vector<char> data = fileReader.readData<char>(filename);
-                // Process data as needed.
+                globalCharData = fileReader.readData<char>(filename);
+                SelectWriteOrUse<char> charOptions;
+                charOptions.displayMenu();
+                int choice = charOptions.getUserChoice(); // Tak samo tutaj.
+                charOptions.processChoice(choice, globalCharData);
                 break;
             }
             default:
                 cout << "Invalid option, please try again!" << endl;
-                break;
         }
     } catch (const runtime_error& e) {
         cerr << "Error: " << e.what() << endl;
