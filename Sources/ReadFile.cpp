@@ -12,13 +12,11 @@ vector<T> ReadFile::readData(const string& filename) {
     int size;
     file >> size; // Czytanie rozmiaru tablicy
 
-    vector<T> data;
-    T value;
-    while(file >> value) {
-        data.push_back(value);
-    }
-    if (data.size() != size) {
-        throw runtime_error("File content does not match the specified size.");
+    vector<T> data(size); // Utworzenie wektora o określonym rozmiarze
+    for (int i = 0; i < size; ++i) {
+        if (!(file >> data[i])) {
+            throw runtime_error("Error reading data from file.");
+        }
     }
 
     file.close();

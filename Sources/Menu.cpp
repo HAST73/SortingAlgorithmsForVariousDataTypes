@@ -74,11 +74,11 @@ void Menu::generateRandomNumberFile(const std::string& filename) {
     }
 
     std::srand(std::time(nullptr)); // Use current time as seed for random generator
-    int count = std::rand() % 100 + 1; // Generate a random count of numbers between 1 and 100
+    int count = std::rand() % 1000 + 1; // Generate a random count of numbers between 1 and 100
 
     file << count << std::endl; // First line is the count of random numbers
     for (int i = 0; i < count; ++i) {
-        int randomNumber = std::rand() % 101; // Generate a random number between 0 and 100
+        int randomNumber = std::rand() % 1001; // Generate a random number between 0 and 100
         file << randomNumber << std::endl;
     }
 
