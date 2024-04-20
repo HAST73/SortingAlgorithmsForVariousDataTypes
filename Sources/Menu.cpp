@@ -50,13 +50,6 @@ void Menu::processChoice(int choice) {
             generateRandomNumberFile(filepath);
             break;
         }
-//        case 3:
-//            cout << "Option 3 selected" << endl;
-//            break;
-        case 4:
-            cout << "Option 4 selected" << endl;
-            // Tutaj możesz umieścić kod związany z opcją 4
-            break;
         case 5:
             cout << "End of program" << endl;
             running = false;

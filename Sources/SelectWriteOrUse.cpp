@@ -1,5 +1,6 @@
 #include "../Headers/SelectWriteOrUse.h"
 #include "../Headers/QuickSort.h"
+#include "../Headers/SortMenu.h"
 
 template<typename T>
 void SelectWriteOrUse<T>::displayMenu() {
@@ -32,12 +33,10 @@ void SelectWriteOrUse<T>::processChoice(int choice, vector<T>& data) {
         }
         case 2: {
             cout << "Processing data..." << endl;
-
-            QuickSort sorter; // Deklaracja obiektu sorter
-            sorter.displaySortMenu();
-            int sortChoice = sorter.getSortChoice(); // Deklaracja zmiennej sortChoice
-            sorter.performSort(sortChoice, data);
-
+            SortMenu sortMenu;
+            sortMenu.displaySortMenu();
+            int sortChoice = sortMenu.getSortChoice();
+            sortMenu.performSort(sortChoice, data); // Możliwe, że będziesz musiał zaimplementować tę metodę w SortMenu
             break;
         }
         case 3: {
