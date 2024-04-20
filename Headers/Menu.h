@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 class Menu {
 public:
-    void generateGeneralMenu(); // Metoda generująca menu
-    int getChoice(); // Metoda pobierająca wybór użytkownika
-    void processChoice(int choice); // Metoda przetwarzająca wybór użytkownika
+    static void generateGeneralMenu();
+    static void generateRandomNumberFile(const std::string& filename); // Static method declaration
+    static int getChoice();
+    static void processChoice(int choice);
     static bool running;
 };
 
