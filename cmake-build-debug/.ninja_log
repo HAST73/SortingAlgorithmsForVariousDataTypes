@@ -14,3 +14,6 @@
 12	623	7353263346342167	CMakeFiles/Project_AIZO.dir/Sources/SelectWriteOrUse.cpp.obj	4b61b26762413c5
 22	824	7353260262102550	CMakeFiles/Project_AIZO.dir/Sources/Sort.cpp.obj	2753b0cd3efe6ec9
 11	669	7353266349867673	CMakeFiles/Project_AIZO.dir/Sources/SelectSort.cpp.obj	ef388f5463bfb528
+3	673	7353295913510664	CMakeFiles/Project_AIZO.dir/Sources/SelectWriteOrUse.cpp.obj	4b61b26762413c5
+13	834	7353295915121015	CMakeFiles/Project_AIZO.dir/Sources/QuickSort.cpp.obj	151f84a82f0326af
+835	1059	7353295917321512	Project_AIZO.exe	5daa5cae7ef7f45a

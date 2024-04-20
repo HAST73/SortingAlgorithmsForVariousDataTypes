@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <iomanip> // For std::put_time
+#include <sstream> // For std::ostringstream
 
 using namespace std;
 
@@ -27,20 +29,24 @@ template<typename T>
 void QuickSort::performSort(int choice, vector<T>& data) {
     // We need to specify 'T' here to make sure 'Sort' is properly instantiated.
     typename Sort<T>::PivotType pivotType = Sort<T>::LEFT; // Default
-
+    string pivotName;
 
     switch (choice) {
         case 1:
             pivotType = Sort<T>::LEFT;
+            pivotName = "left";
             break;
         case 2:
             pivotType = Sort<T>::MIDDLE;
+            pivotName = "middle";
             break;
         case 3:
             pivotType = Sort<T>::RIGHT;
+            pivotName = "right";
             break;
         case 4:
             pivotType = Sort<T>::RANDOM;
+            pivotName = "random";
             break;
         default:
             cout << "Invalid sort choice, please try again." << endl;
@@ -48,9 +54,16 @@ void QuickSort::performSort(int choice, vector<T>& data) {
     }
     Sort<T>::quickSort(data, 0, data.size() - 1, pivotType);
 
+    auto t = time(nullptr);
+    auto tm = *localtime(&t);
+
+    std::ostringstream oss;
+    oss << std::put_time(&tm, "%Y%m%d_%H%M%S"); // Format: YYYYMMDD_HHMMSS
+    std::string timestamp = oss.str();
+
     // Create a filename with a specific pattern or ask the user for a name
     // For example, "sorted_data.txt" or any other naming convention you want.
-    std::string filename = "sorted_output.txt";
+    std::string filename = "sorted_" + pivotName + "_" + timestamp + ".txt";
 
     // Prepend the relative directory path to the filename
     std::string filepath = "../Sources/" + filename;
