@@ -27,3 +27,4 @@ vector<T> ReadFile::readData(const string& filename) {
 template vector<int> ReadFile::readData<int>(const string& filename);
 template vector<float> ReadFile::readData<float>(const string& filename);
 template vector<char> ReadFile::readData<char>(const string& filename);
+template vector<double> ReadFile::readData<double>(const string& filename);

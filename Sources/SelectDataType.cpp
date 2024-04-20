@@ -7,6 +7,7 @@ using namespace std;
 vector<int> globalIntData;
 vector<float> globalFloatData;
 vector<char> globalCharData;
+vector<double> globalDoubleData;
 
 void SelectDataType::selectDataType() {
     cout << "\nMenu:" << endl;
@@ -14,6 +15,7 @@ void SelectDataType::selectDataType() {
     cout << "1. Select -int" << endl;
     cout << "2. Select -float" << endl;
     cout << "3. Select -char" << endl;
+    cout << "4. Select -double" << endl;
     cout << "------------------------" << endl;
     cout << "Select an option: ";
 }
@@ -60,6 +62,14 @@ void SelectDataType::processSelectFromLoadedFile(int selection) {
                 charOptions.displayMenu();
                 int choice = charOptions.getUserChoice(); // Tak samo tutaj.
                 charOptions.processChoice(choice, globalCharData);
+                break;
+            }
+            case 4: {
+                globalDoubleData = fileReader.readData<double>(filename);
+                SelectWriteOrUse<double> doubleOptions;
+                doubleOptions.displayMenu();
+                int choice = doubleOptions.getUserChoice();
+                doubleOptions.processChoice(choice, globalDoubleData);
                 break;
             }
             default:

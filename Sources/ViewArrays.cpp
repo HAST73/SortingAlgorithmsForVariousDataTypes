@@ -14,3 +14,4 @@ void ViewArrays::displayArray(const vector<T>& data) {
 template void ViewArrays::displayArray<int>(const vector<int>&);
 template void ViewArrays::displayArray<float>(const vector<float>&);
 template void ViewArrays::displayArray<char>(const vector<char>&);
+template void ViewArrays::displayArray<double>(const vector<double>&);

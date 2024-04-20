@@ -56,3 +56,4 @@ void SelectWriteOrUse<T>::processChoice(int choice, vector<T>& data) {
 template class SelectWriteOrUse<int>;
 template class SelectWriteOrUse<float>;
 template class SelectWriteOrUse<char>;
+template class SelectWriteOrUse<double>;

@@ -46,3 +46,4 @@ void SelectSort::performSort(int choice, vector<T>& data) {
 template void SelectSort::performSort<int>(int choice, vector<int>& data);
 template void SelectSort::performSort<float>(int choice, vector<float>& data);
 template void SelectSort::performSort<char>(int choice, vector<char>& data);
+template void SelectSort::performSort<double>(int choice, vector<double>& data);
