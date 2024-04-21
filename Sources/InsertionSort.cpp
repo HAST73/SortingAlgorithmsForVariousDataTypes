@@ -1,0 +1,39 @@
+#include "../Headers/InsertionSort.h"
+#include <fstream>
+#include <iostream>
+
+template<typename T>
+void InsertionSort::sortAndSave(const std::vector<T>& data, const std::string& filename) {
+    // Najpierw tworzymy lokalną kopię danych, ponieważ chcemy je posortować
+    std::vector<T> localData = data;
+
+    // Sortowanie przez wstawianie
+    for (int i = 1; i < localData.size(); ++i) {
+        T key = localData[i];
+        int j = i - 1;
+
+        while (j >= 0 && localData[j] > key) {
+            localData[j + 1] = localData[j];
+            j = j - 1;
+        }
+        localData[j + 1] = key;
+    }
+
+    // Zapisanie posortowanych danych do pliku
+    std::ofstream outFile(filename);
+    if (outFile.is_open()) {
+        for (const T& element : localData) {
+            outFile << element << '\n';
+        }
+        outFile.close();
+        std::cout << "Sorted data saved to " << filename << std::endl;
+    } else {
+        std::cerr << "Unable to open file for writing: " << filename << '\n';
+    }
+}
+
+// Eksplikacje instancji szablonu
+template void InsertionSort::sortAndSave<int>(const std::vector<int>& data, const std::string& filename);
+template void InsertionSort::sortAndSave<float>(const std::vector<float>& data, const std::string& filename);
+template void InsertionSort::sortAndSave<char>(const std::vector<char>& data, const std::string& filename);
+template void InsertionSort::sortAndSave<double>(const std::vector<double>& data, const std::string& filename);

@@ -2,9 +2,6 @@
 #include "../Headers/Sort.h"
 
 #include <iostream>
-#include <fstream>
-#include <iomanip> // For std::put_time
-#include <sstream> // For std::ostringstream
 
 using namespace std;
 
@@ -54,23 +51,15 @@ void QuickSort::performSort(int choice, vector<T>& data) {
     }
     Sort<T>::quickSort(data, 0, data.size() - 1, pivotType);
 
-    auto t = time(nullptr);
-    auto tm = *localtime(&t);
-
-    std::ostringstream oss;
-    oss << std::put_time(&tm, "%Y%m%d_%H%M%S"); // Format: YYYYMMDD_HHMMSS
-    std::string timestamp = oss.str();
-
-    // Create a filename with a specific pattern or ask the user for a name
-    // For example, "sorted_data.txt" or any other naming convention you want.
-    std::string filename = "sorted_" + pivotName + "_" + timestamp + ".txt";
+    // Create a filename with a pivot type pattern
+    std::string filename = "quicksort_" + pivotName + ".txt";
 
     // Prepend the relative directory path to the filename
     std::string filepath = "../Sources/" + filename;
 
     // Save the sorted data to the file in the desired directory
     Sort<T>::saveToFile(data, filepath);
-    std::cout << "Data sorted and saved to " << filepath << std::endl;
+    std::cout << "Data sorted using " << pivotName << " pivot and saved to " << filepath << std::endl;
 }
 
 // Potrzebne eksplicytna instancja szablonu dla używanych typów

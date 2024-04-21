@@ -1,7 +1,9 @@
 #include "../Headers/SortMenu.h"
 #include "../Headers/QuickSort.h"
+#include "../Headers/InsertionSort.h"
 
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -40,8 +42,10 @@ void SortMenu::performSort(int choice, vector<T>& data) {
             // Call HeapSort on data
             break;
         case 4:
-            // Call InsertionSort on data
+        {
+            InsertionSort::sortAndSave(data, "../Sources/insertion_sort.txt");
             break;
+        }
         default:
             cout << "Invalid sort choice, please try again." << endl;
             break;
