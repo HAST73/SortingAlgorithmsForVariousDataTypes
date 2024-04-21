@@ -1,5 +1,6 @@
 #include "../Headers/SelectWriteOrUse.h"
 #include "../Headers/SortMenu.h"
+#include "../Headers/CheckIsItSorted.h"
 
 #include <iostream>
 #include <vector>
@@ -12,6 +13,7 @@ void SelectWriteOrUse<T>::displayMenu() {
     cout << "------------------------" << endl;
     cout << "1. Display Array (First number is size)" << endl;
     cout << "2. Sort" << endl;
+    cout << "3. Check if array is sorted" << endl; // New option
     cout << "------------------------" << endl;
     cout << "Select an option: ";
 }
@@ -40,6 +42,15 @@ void SelectWriteOrUse<T>::processChoice(int choice, vector<T>& data) {
             sortMenu.displaySortMenu();
             int sortChoice = sortMenu.getSortChoice();
             sortMenu.performSort(sortChoice, data); // Możliwe, że będziesz musiał zaimplementować tę metodę w SortMenu
+            break;
+        }
+        case 3: {
+            // New case to check if the array is sorted
+            if (CheckIsItSorted::isSorted(data)) {
+                cout << "Array is sorted." << endl;
+            } else {
+                cout << "Array is not sorted." << endl;
+            }
             break;
         }
         default: {

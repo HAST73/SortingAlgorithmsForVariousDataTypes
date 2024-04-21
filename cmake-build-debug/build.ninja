@@ -115,6 +115,12 @@ build CMakeFiles/Project_AIZO.dir/Sources/ShellSort.cpp.obj: CXX_COMPILER__Proje
   OBJECT_DIR = CMakeFiles\Project_AIZO.dir
   OBJECT_FILE_DIR = CMakeFiles\Project_AIZO.dir\Sources
 
+build CMakeFiles/Project_AIZO.dir/Sources/CheckIsItSorted.cpp.obj: CXX_COMPILER__Project_AIZO_Debug C$:/Users/Konrad/Desktop/Projekt$ AiZO/Project_AIZO/Sources/CheckIsItSorted.cpp || cmake_object_order_depends_target_Project_AIZO
+  DEP_FILE = CMakeFiles\Project_AIZO.dir\Sources\CheckIsItSorted.cpp.obj.d
+  FLAGS = -g -std=gnu++23
+  OBJECT_DIR = CMakeFiles\Project_AIZO.dir
+  OBJECT_FILE_DIR = CMakeFiles\Project_AIZO.dir\Sources
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Project_AIZO
@@ -123,7 +129,7 @@ build CMakeFiles/Project_AIZO.dir/Sources/ShellSort.cpp.obj: CXX_COMPILER__Proje
 #############################################
 # Link the executable Project_AIZO.exe
 
-build Project_AIZO.exe: CXX_EXECUTABLE_LINKER__Project_AIZO_Debug CMakeFiles/Project_AIZO.dir/Sources/main.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/Menu.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/SelectDataType.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/ReadFile.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/SelectWriteOrUse.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/Sort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/QuickSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/SortMenu.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/InsertionSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/HeapSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/ShellSort.cpp.obj
+build Project_AIZO.exe: CXX_EXECUTABLE_LINKER__Project_AIZO_Debug CMakeFiles/Project_AIZO.dir/Sources/main.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/Menu.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/SelectDataType.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/ReadFile.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/SelectWriteOrUse.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/Sort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/QuickSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/SortMenu.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/InsertionSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/HeapSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/ShellSort.cpp.obj CMakeFiles/Project_AIZO.dir/Sources/CheckIsItSorted.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Project_AIZO.dir
