@@ -22,7 +22,6 @@ void SelectDataType::selectDataType() {
 
 int SelectDataType::getSelection() {
     int selection;
-    cout << "Select an option: ";
     cin >> selection;
     return selection;
 }

@@ -1,10 +1,8 @@
 #include <iostream>
 #include "../Headers/Menu.h"
 #include "../Headers/SelectDataType.h"
-#include "../Headers/ViewArrays.h"
 #include <cstdlib>
 #include <ctime>
-#include <fstream>
 
 using namespace std;
 
@@ -15,16 +13,15 @@ void Menu::generateGeneralMenu() {
     cout << "------------------------" << endl;
     cout << "1. Load data from a file" << endl;
     cout << "2. Generate arrays with random values in a new text file" << endl;
-//    cout << "3. View arrays" << endl;
-//    cout << "4. Sort arrays" << endl;
     cout << "5. Exit the program" << endl;
+    cout << "------------------------" << endl;
+    cout << "In case when you don't see a text file after sorting, just insert this hot key : CTRL + ALT + Y" << endl;
     cout << "------------------------" << endl;
     cout << "Select an option: ";
 }
 
 int Menu::getChoice() {
     int choice;
-    cout << "Select an option: ";
     cin >> choice;
     return choice;
 }
@@ -51,7 +48,6 @@ void Menu::processChoice(int choice) {
             break;
         }
         case 5:
-            cout << "End of program" << endl;
             running = false;
             break;
         default:
