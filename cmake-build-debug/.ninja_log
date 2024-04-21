@@ -15,3 +15,7 @@
 22	824	7353260262102550	CMakeFiles/Project_AIZO.dir/Sources/Sort.cpp.obj	2753b0cd3efe6ec9
 11	669	7353266349867673	CMakeFiles/Project_AIZO.dir/Sources/SelectSort.cpp.obj	ef388f5463bfb528
 3	698	7354031300966497	CMakeFiles/Project_AIZO.dir/Sources/SortMenu.cpp.obj	aa63ee866837920
+3	791	7354036898031482	CMakeFiles/Project_AIZO.dir/Sources/HeapSort.cpp.obj	51df5580f4085288
+791	1032	7354036900392046	Project_AIZO.exe	61a897839f629ca
+3	682	7354038185374998	CMakeFiles/Project_AIZO.dir/Sources/SortMenu.cpp.obj	aa63ee866837920
+683	925	7354038187745533	Project_AIZO.exe	61a897839f629ca

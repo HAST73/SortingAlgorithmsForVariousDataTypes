@@ -1,6 +1,7 @@
 #include "../Headers/SortMenu.h"
 #include "../Headers/QuickSort.h"
 #include "../Headers/InsertionSort.h"
+#include "../Headers/HeapSort.h"
 
 #include <iostream>
 #include <fstream>
@@ -39,7 +40,7 @@ void SortMenu::performSort(int choice, vector<T>& data) {
             // Call ShellSort on data
             break;
         case 3:
-            // Call HeapSort on data
+            HeapSort::sortAndSave(data, "../Sources/heap_sort.txt");
             break;
         case 4:
         {
