@@ -29,55 +29,46 @@ int SelectDataType::getSelection() {
 void SelectDataType::processSelectFromLoadedFile(int selection) {
     const string basePath = "../Sources/";
     string filename;
-    cout << "Write the name of the text file with the extension .txt: " << endl;
+    cout << "Write the name of the text file with the extension .txt: ";
     cin >> filename;
     filename = basePath + filename;
 
-    try {
-        SelectWriteOrUse<int> intOptions;
-        SelectWriteOrUse<float> floatOptions;
-        SelectWriteOrUse<char> charOptions;
+    cout << "Do you want the first number to represent the size of the array? (yes/no): ";
+    string readMode;
+    cin >> readMode;
+    bool fullRead = (readMode == "no");
 
+    try {
         switch (selection) {
-            case 1: {
-                globalIntData = fileReader.readData<int>(filename);
+            case 1:
+                globalIntData = fileReader.readData<int>(filename, fullRead);
                 SelectWriteOrUse<int> intOptions;
                 intOptions.displayMenu();
-                int choice = intOptions.getUserChoice();
-                intOptions.processChoice(choice, globalIntData);
+                intOptions.processChoice(globalIntData);
                 break;
-            }
-            case 2: {
-                globalFloatData = fileReader.readData<float>(filename);
+            case 2:
+                globalFloatData = fileReader.readData<float>(filename, fullRead);
                 SelectWriteOrUse<float> floatOptions;
                 floatOptions.displayMenu();
-                int choice = floatOptions.getUserChoice(); // Zmienna 'choice' jest teraz zagnieżdżona w bloku.
-                floatOptions.processChoice(choice, globalFloatData);
+                floatOptions.processChoice(globalFloatData);
                 break;
-            }
-            case 3: {
-                globalCharData = fileReader.readData<char>(filename);
+            case 3:
+                globalCharData = fileReader.readData<char>(filename, fullRead);
                 SelectWriteOrUse<char> charOptions;
                 charOptions.displayMenu();
-                int choice = charOptions.getUserChoice(); // Tak samo tutaj.
-                charOptions.processChoice(choice, globalCharData);
+                charOptions.processChoice(globalCharData);
                 break;
-            }
-            case 4: {
-                globalDoubleData = fileReader.readData<double>(filename);
+            case 4:
+                globalDoubleData = fileReader.readData<double>(filename, fullRead);
                 SelectWriteOrUse<double> doubleOptions;
                 doubleOptions.displayMenu();
-                int choice = doubleOptions.getUserChoice();
-                doubleOptions.processChoice(choice, globalDoubleData);
+                doubleOptions.processChoice(globalDoubleData);
                 break;
-            }
             default:
-                cout << "Invalid choice, defaulting to -for type." << endl;
-                globalIntData = fileReader.readData<int>(filename);
-                SelectWriteOrUse<int> intOptions;
+                cout << "Invalid choice, defaulting to -int type." << endl;
+                globalIntData = fileReader.readData<int>(filename, fullRead);
                 intOptions.displayMenu();
-                int choice = intOptions.getUserChoice();
-                intOptions.processChoice(choice, globalIntData);
+                intOptions.processChoice(globalIntData);
                 break;
         }
     } catch (const runtime_error& e) {

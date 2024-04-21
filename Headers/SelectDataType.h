@@ -3,17 +3,17 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include "../Headers/ReadFile.h"
 
 using namespace std;
 
 class SelectDataType {
+    ReadFile fileReader; // Add this line to declare fileReader
 public:
-    void selectDataType(); // Metoda generująca menu z wyborem typu danych
-    int getSelection(); // Metoda pobierająca wybór użytkownika
-    void processSelectFromLoadedFile(int selection); // Metoda przetwarzająca wybór użytkownika
-private:
-    ReadFile fileReader;  // Instance of ReadFile to use for reading.
+    void selectDataType();
+    int getSelection();
+    void processSelectFromLoadedFile(int selection);
 };
 
 #endif //PROJECT_AIZO_SELECTDATATYPE_H

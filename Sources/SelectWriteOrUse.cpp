@@ -11,7 +11,7 @@ template<typename T>
 void SelectWriteOrUse<T>::displayMenu() {
     cout << "\nData Options Menu:" << endl;
     cout << "------------------------" << endl;
-    cout << "1. Display Array (First number is size)" << endl;
+    cout << "1. Display Array" << endl;
     cout << "2. Sort" << endl;
     cout << "3. Check if array is sorted" << endl; // New option
     cout << "------------------------" << endl;
@@ -19,44 +19,34 @@ void SelectWriteOrUse<T>::displayMenu() {
 }
 
 template<typename T>
-int SelectWriteOrUse<T>::getUserChoice() {
+void SelectWriteOrUse<T>::processChoice(std::vector<T>& data) {
     int choice;
+    cout << "Enter your choice: ";
     cin >> choice;
-    return choice;
-}
-
-template<typename T>
-void SelectWriteOrUse<T>::processChoice(int choice, vector<T>& data) {
     switch (choice) {
-        case 1: {
-            // Pomijamy pierwszy element, który jest rozmiarem tablicy
+        case 1:
             for (size_t i = 0; i < data.size(); ++i) {
                 cout << data[i] << " ";
             }
             cout << endl;
             break;
-        }
         case 2: {
-            cout << "Processing data..." << endl;
             SortMenu sortMenu;
             sortMenu.displaySortMenu();
             int sortChoice = sortMenu.getSortChoice();
-            sortMenu.performSort(sortChoice, data); // Możliwe, że będziesz musiał zaimplementować tę metodę w SortMenu
+            sortMenu.performSort(sortChoice, data);
             break;
         }
-        case 3: {
-            // New case to check if the array is sorted
+        case 3:
             if (CheckIsItSorted::isSorted(data)) {
                 cout << "Array is sorted." << endl;
             } else {
                 cout << "Array is not sorted." << endl;
             }
             break;
-        }
-        default: {
+        default:
             cout << "Invalid choice, please try again." << endl;
             break;
-        }
     }
 }
 
