@@ -73,7 +73,13 @@ void SelectDataType::processSelectFromLoadedFile(int selection) {
                 break;
             }
             default:
-                cout << "Invalid option, please try again!" << endl;
+                cout << "Invalid choice, defaulting to -for type." << endl;
+                globalIntData = fileReader.readData<int>(filename);
+                SelectWriteOrUse<int> intOptions;
+                intOptions.displayMenu();
+                int choice = intOptions.getUserChoice();
+                intOptions.processChoice(choice, globalIntData);
+                break;
         }
     } catch (const runtime_error& e) {
         cerr << "Error: " << e.what() << endl;

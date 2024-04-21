@@ -2,6 +2,7 @@
 #include "../Headers/QuickSort.h"
 #include "../Headers/InsertionSort.h"
 #include "../Headers/HeapSort.h"
+#include "../Headers/ShellSort.h"
 
 #include <iostream>
 #include <fstream>
@@ -37,8 +38,14 @@ void SortMenu::performSort(int choice, vector<T>& data) {
             break;
         }
         case 2:
-            // Call ShellSort on data
+        {
+            ShellSort::displayGapMenu();
+            ShellSort::GapSequence seq = ShellSort::getUserGapChoice();
+            // Pass only the base part of the filename
+            ShellSort::sortAndSave(data, "../Sources/shell_sort", seq);
             break;
+        }
+
         case 3:
             HeapSort::sortAndSave(data, "../Sources/heap_sort.txt");
             break;
