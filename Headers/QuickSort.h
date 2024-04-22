@@ -1,20 +1,17 @@
 #ifndef PROJECT_AIZO_QUICKSORT_H
 #define PROJECT_AIZO_QUICKSORT_H
 
-using namespace std;
-
 #include <vector>
 #include <iostream>
-#include "../Headers/Sort.h"
 
+// Klasa realizująca sortowanie szybkie (QuickSort)
 class QuickSort {
 public:
-    void displaySortMenu();
-    int getSortChoice();
+    void displaySortMenu(); // Wyświetla menu wyboru typu pivota
+    int getSortChoice(); // Pobiera wybór użytkownika
 
-    // Declare the template function inside the class definition
     template<typename T>
-    void performSort(int choice, std::vector<T>& data);
+    void performSort(int choice, std::vector<T>& data); // Wykonuje sortowanie na podstawie wybranego typu pivota
 };
 
 #endif //PROJECT_AIZO_QUICKSORT_H

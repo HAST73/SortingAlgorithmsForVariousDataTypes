@@ -4,16 +4,11 @@
 #include <vector>
 #include <string>
 
+// Klasa realizująca sortowanie przez wstawianie
 class InsertionSort {
 public:
     template<typename T>
-    static void sortAndSave(const std::vector<T>& data, const std::string& filename);
+    static void sortAndSave(const std::vector<T>& data, const std::string& filename); // Sortuje dane i zapisuje je do pliku
 };
-
-// Eksplicytne instancje szablonu
-extern template void InsertionSort::sortAndSave<int>(const std::vector<int>& data, const std::string& filename);
-extern template void InsertionSort::sortAndSave<float>(const std::vector<float>& data, const std::string& filename);
-extern template void InsertionSort::sortAndSave<char>(const std::vector<char>& data, const std::string& filename);
-extern template void InsertionSort::sortAndSave<double>(const std::vector<double>& data, const std::string& filename);
 
 #endif //PROJECT_AIZO_INSERTIONSORT_H

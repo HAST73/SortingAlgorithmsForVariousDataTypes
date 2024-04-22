@@ -1,11 +1,18 @@
 #include "../Headers/InsertionSort.h"
+
+
 #include <fstream>
 #include <iostream>
+#include <vector>
+#include <chrono>
 
 template<typename T>
 void InsertionSort::sortAndSave(const std::vector<T>& data, const std::string& filename) {
-    // Najpierw tworzymy lokalną kopię danych, ponieważ chcemy je posortować
+    // Tworzymy lokalną kopię danych, ponieważ chcemy je posortować
     std::vector<T> localData = data;
+
+    // Rozpoczęcie pomiaru czasu
+    auto start = std::chrono::high_resolution_clock::now();
 
     // Sortowanie przez wstawianie
     for (int i = 1; i < localData.size(); ++i) {
@@ -19,6 +26,10 @@ void InsertionSort::sortAndSave(const std::vector<T>& data, const std::string& f
         localData[j + 1] = key;
     }
 
+    // Zakończenie pomiaru czasu
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double, std::milli> duration = end - start;
+
     // Zapisanie posortowanych danych do pliku
     std::ofstream outFile(filename);
     if (outFile.is_open()) {
@@ -26,7 +37,7 @@ void InsertionSort::sortAndSave(const std::vector<T>& data, const std::string& f
             outFile << element << '\n';
         }
         outFile.close();
-        std::cout << "Sorted data saved to " << filename << std::endl;
+        std::cout << "Sorted data saved to " << filename << ". Time taken: " << duration.count() << " ms" << std::endl;
     } else {
         std::cerr << "Unable to open file for writing: " << filename << '\n';
     }

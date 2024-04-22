@@ -3,11 +3,11 @@
 
 #include <vector>
 
-
+// Klasa sprawdzająca, czy tablica jest posortowana
 class CheckIsItSorted {
 public:
     template<typename T>
-    static bool isSorted(const std::vector<T>& data);
+    static bool isSorted(const std::vector<T>& data); // Metoda statyczna sprawdzająca posortowanie
 };
 
 #endif //PROJECT_AIZO_CHECKISITSORTED_H

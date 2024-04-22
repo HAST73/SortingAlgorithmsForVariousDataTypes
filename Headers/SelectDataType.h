@@ -6,14 +6,14 @@
 #include <string>
 #include "../Headers/ReadFile.h"
 
-using namespace std;
-
+// Klasa umożliwiająca wybór typu danych do przetwarzania
 class SelectDataType {
-    ReadFile fileReader; // Add this line to declare fileReader
+    ReadFile fileReader;  // Czytnik plików
+
 public:
-    void selectDataType();
-    int getSelection();
-    void processSelectFromLoadedFile(int selection);
+    void selectDataType();  // Wyświetla menu wyboru typu danych
+    int getSelection();  // Pobiera wybór typu danych od użytkownika
+    void processSelectFromLoadedFile(int selection);  // Obsługuje przetwarzanie danych na podstawie wybranego typu
 };
 
 #endif //PROJECT_AIZO_SELECTDATATYPE_H

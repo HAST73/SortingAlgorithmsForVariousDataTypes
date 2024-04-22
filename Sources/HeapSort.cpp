@@ -1,6 +1,8 @@
 #include "../Headers/HeapSort.h"
 #include <fstream>
 #include <iostream>
+#include <chrono>  // Include for high-resolution timing
+#include <vector>
 
 template<typename T>
 void HeapSort::heapify(std::vector<T>& data, int n, int i) {
@@ -40,7 +42,12 @@ void HeapSort::heapSort(std::vector<T>& data) {
 template<typename T>
 void HeapSort::sortAndSave(const std::vector<T>& data, const std::string& filename) {
     std::vector<T> localData = data;
-    heapSort(localData);
+
+    auto start = std::chrono::high_resolution_clock::now();  // Start timing the sort process
+    heapSort(localData);  // Perform the heap sort
+    auto end = std::chrono::high_resolution_clock::now();  // End timing the sort process
+
+    std::chrono::duration<double, std::milli> duration = end - start;  // Calculate duration in milliseconds
 
     std::ofstream outFile(filename);
     if (outFile.is_open()) {
@@ -49,6 +56,7 @@ void HeapSort::sortAndSave(const std::vector<T>& data, const std::string& filena
         }
         outFile.close();
         std::cout << "Sorted data saved to " << filename << std::endl;
+        std::cout << "Time taken for sorting: " << duration.count() << " ms" << std::endl;  // Output the time taken for sorting
     } else {
         std::cerr << "Unable to open file for writing: " << filename << '\n';
     }

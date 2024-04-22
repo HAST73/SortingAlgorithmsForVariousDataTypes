@@ -1,7 +1,8 @@
 #include "../Headers/QuickSort.h"
-#include "../Headers/Sort.h"
+#include "../Headers/QuickSortHelper.h"
 
 #include <iostream>
+#include <chrono>
 
 using namespace std;
 
@@ -24,42 +25,43 @@ int QuickSort::getSortChoice() {
 
 template<typename T>
 void QuickSort::performSort(int choice, vector<T>& data) {
-    // We need to specify 'T' here to make sure 'Sort' is properly instantiated.
-    typename Sort<T>::PivotType pivotType = Sort<T>::LEFT; // Default
+    typename QuickSortHelper<T>::PivotType pivotType = QuickSortHelper<T>::LEFT; // Default
     string pivotName;
 
     switch (choice) {
         case 1:
-            pivotType = Sort<T>::LEFT;
+            pivotType = QuickSortHelper<T>::LEFT;
             pivotName = "left";
             break;
         case 2:
-            pivotType = Sort<T>::MIDDLE;
+            pivotType = QuickSortHelper<T>::MIDDLE;
             pivotName = "middle";
             break;
         case 3:
-            pivotType = Sort<T>::RIGHT;
+            pivotType = QuickSortHelper<T>::RIGHT;
             pivotName = "right";
             break;
         case 4:
-            pivotType = Sort<T>::RANDOM;
+            pivotType = QuickSortHelper<T>::RANDOM;
             pivotName = "random";
             break;
         default:
             cout << "Invalid sort choice, please try again." << endl;
             return;
     }
-    Sort<T>::quickSort(data, 0, data.size() - 1, pivotType);
 
-    // Create a filename with a pivot type pattern
-    std::string filename = "quicksort_" + pivotName + ".txt";
+    auto start = chrono::high_resolution_clock::now();
+    QuickSortHelper<T>::quickSort(data, 0, data.size() - 1, pivotType);
+    auto end = chrono::high_resolution_clock::now();
 
-    // Prepend the relative directory path to the filename
-    std::string filepath = "../Sources/" + filename;
+    chrono::duration<double, milli> duration = end - start;
 
-    // Save the sorted data to the file in the desired directory
-    Sort<T>::saveToFile(data, filepath);
-    std::cout << "Data sorted using " << pivotName << " pivot and saved to " << filepath << std::endl;
+    string filename = "quicksort_" + pivotName + ".txt";
+    string filepath = "../Sources/" + filename;
+    QuickSortHelper<T>::saveToFile(data, filepath);
+
+    cout << "Data sorted using " << pivotName << " pivot and saved to " << filepath << endl;
+    cout << "Sorting time: " << duration.count() << " ms" << endl;
 }
 
 // Potrzebne eksplicytna instancja szablonu dla używanych typów

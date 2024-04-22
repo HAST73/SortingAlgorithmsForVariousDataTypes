@@ -1,10 +1,10 @@
-#include "../Headers/Sort.h"
+#include "../Headers/QuickSortHelper.h"
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
 
 template<typename T>
-void Sort<T>::quickSort(std::vector<T>& data, int left, int right, PivotType pivotType) {
+void QuickSortHelper<T>::quickSort(std::vector<T>& data, int left, int right, PivotType pivotType) {
     if (left < right) {
         int pivotIndex = left; // Default to left pivot
         int i = left, j = right;
@@ -43,7 +43,7 @@ void Sort<T>::quickSort(std::vector<T>& data, int left, int right, PivotType piv
 }
 
 template<typename T>
-void Sort<T>::saveToFile(const std::vector<T>& data, const std::string& filename) {
+void QuickSortHelper<T>::saveToFile(const std::vector<T>& data, const std::string& filename) {
     std::ofstream file(filename);
     if (file.is_open()) {
         for (const T& element : data) {
@@ -56,7 +56,7 @@ void Sort<T>::saveToFile(const std::vector<T>& data, const std::string& filename
 }
 
 // Explicit template instantiation
-template class Sort<int>;
-template class Sort<float>;
-template class Sort<char>;
-template class Sort<double>;
+template class QuickSortHelper<int>;
+template class QuickSortHelper<float>;
+template class QuickSortHelper<char>;
+template class QuickSortHelper<double>;

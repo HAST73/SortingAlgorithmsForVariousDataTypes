@@ -5,9 +5,6 @@
 #include <random>
 #include <iostream>
 
-// Konstruktor (jeśli potrzebny)
-GenerateDifferentArrays::GenerateDifferentArrays() {}
-
 void GenerateDifferentArrays::generateRandom(std::vector<int>& data) {
     std::random_device rd;
     std::mt19937 gen(rd());

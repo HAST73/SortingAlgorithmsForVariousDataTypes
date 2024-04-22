@@ -1,9 +1,11 @@
 #include "../Headers/ShellSort.h"
 
-#include <iostream>
+
 #include <fstream>
-#include <cmath>
+#include <iostream>
 #include <vector>
+#include <chrono>
+#include <cmath>
 
 void ShellSort::displayGapMenu() {
     std::cout << "Select gap sequence for ShellSort:" << std::endl;
@@ -52,6 +54,8 @@ std::vector<int> ShellSort::generateGaps(size_t size, GapSequence sequence) {
 template<typename T>
 void ShellSort::shellSort(std::vector<T>& data, GapSequence gapSequence) {
     std::vector<int> gaps = generateGaps(data.size(), gapSequence);
+    auto start = std::chrono::high_resolution_clock::now();  // Rozpoczęcie pomiaru czasu
+
     for (int gap : gaps) {
         for (size_t i = gap; i < data.size(); i++) {
             T temp = data[i];
@@ -62,29 +66,34 @@ void ShellSort::shellSort(std::vector<T>& data, GapSequence gapSequence) {
             data[j] = temp;
         }
     }
+
+    auto end = std::chrono::high_resolution_clock::now();  // Zakończenie pomiaru czasu
+    std::chrono::duration<double, std::milli> duration = end - start;  // Obliczenie trwania
+    std::cout << "Sorting completed in " << duration.count() << " ms" << std::endl;  // Wypisanie czasu
 }
 
 template<typename T>
 void ShellSort::sortAndSave(const std::vector<T>& data, const std::string& filename, GapSequence gapSequence) {
     std::vector<T> localData = data;
-    shellSort(localData, gapSequence);
+    shellSort(localData, gapSequence); // Wykonanie sortowania
 
-    // Generate the full filename based on the gap sequence
+    // Generowanie pełnej nazwy pliku na podstawie wybranej sekwencji odstępów
     std::string fullFilename = filename + "_";
     switch (gapSequence) {
         case SHELL: fullFilename += "default"; break;
         case KNUTH: fullFilename += "knuth"; break;
         case HIBBARD: fullFilename += "hibbard"; break;
     }
-    fullFilename += ".txt"; // Append the file extension
+    fullFilename += ".txt"; // Dodanie rozszerzenia pliku
 
+    // Zapis danych do pliku
     std::ofstream outFile(fullFilename);
     if (outFile.is_open()) {
         for (const T& element : localData) {
             outFile << element << '\n';
         }
         outFile.close();
-        std::cout << "Sorted data saved to " << fullFilename << std::endl;
+        std::cout << "Data saved to " << fullFilename << std::endl;
     } else {
         std::cerr << "Unable to open file for writing: " << fullFilename << '\n';
     }
