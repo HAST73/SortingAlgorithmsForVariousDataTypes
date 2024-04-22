@@ -1,9 +1,7 @@
 #include <iostream>
+#include <vector>
+#include <string>
 #include "../Headers/Menu.h"
-#include "../Headers/SelectDataType.h"
-#include <cstdlib>
-#include <ctime>
-#include <fstream>
 
 using namespace std;
 
@@ -40,38 +38,76 @@ void Menu::processChoice(int choice) {
         }
         case 2:
         {
-            cout << "Option 2 selected - Generate random numbers file" << endl;
-            cout << "Enter a filename for the random numbers: ";
-            string filename;
-            cin >> filename;
-            string filepath = "../Sources/" + filename; // Prepend the folder path
-            generateRandomNumberFile(filepath);
+            displayGenerateArrayMenu();
             break;
         }
         case 5:
+        {
             running = false;
             break;
+        }
         default:
+        {
             cout << "Invalid option, please try again!" << endl;
             break;
+        }
     }
 }
 
-void Menu::generateRandomNumberFile(const std::string& filename) {
-    std::ofstream file(filename);
-    if (!file.is_open()) {
-        throw std::runtime_error("Unable to open file: " + filename);
+void Menu::displayGenerateArrayMenu() {
+    cout << "Select type of array to generate:" << endl;
+    cout << "1. Random" << endl;
+    cout << "2. Sorted" << endl;
+    cout << "3. Reverse Sorted" << endl;
+    cout << "4. Partially Sorted" << endl;
+    cout << "0. Return to Main Menu" << endl;
+    cout << "Enter your choice: ";
+    int type;
+    cin >> type;
+    if (type == 0) {
+        return; // Return to main menu
+    }
+    generateAndSaveArray(type);
+}
+
+int Menu::getArraySize() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    return size;
+}
+
+void Menu::generateAndSaveArray(int type) {
+    int arraySize = getArraySize();
+    vector<int> data(arraySize);
+    string filename;
+    cout << "Enter filename: ";
+    cin >> filename;
+    string fullFilename = "../Sources/" + filename;
+
+    switch (type) {
+        case 1:
+            arrayGenerator.generateRandom(data);
+            break;
+        case 2:
+            arrayGenerator.generateSorted(data);
+            break;
+        case 3:
+            arrayGenerator.generateReverseSorted(data);
+            break;
+        case 4:
+            int percentage;
+            cout << "Enter sorted percentage: ";
+            cin >> percentage;
+            arrayGenerator.generatePartiallySorted(data, percentage);
+            break;
+        default:
+            cout << "Invalid selection, generating random array by default.\n";
+            arrayGenerator.generateRandom(data);
+            break;
     }
 
-    std::srand(std::time(nullptr)); // Use current time as seed for random generator
-    int count = std::rand() % 1000 + 1; // Generate a random count of numbers between 1 and 100
-
-    file << count << std::endl; // First line is the count of random numbers
-    for (int i = 0; i < count; ++i) {
-        int randomNumber = std::rand() % 1001; // Generate a random number between 0 and 100
-        file << randomNumber << std::endl;
-    }
-
-    file.close();
+    arrayGenerator.saveToFile(data, fullFilename);
+    cout << "Data saved to " << fullFilename << endl;
 }
 
