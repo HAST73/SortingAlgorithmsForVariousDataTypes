@@ -1,6 +1,6 @@
 <h1 align="left">Project Description</h1>
 
-<p align="left">Project AIZO is a console application for generating, sorting, and managing arrays of various data types. The application allows generating arrays with random, sorted, reversed, and partially sorted values. Supported data types are int, float, char, and double. The program offers various sorting algorithms such as QuickSort, ShellSort, HeapSort, and InsertionSort.</p>
+<p align="left">This project is a console application for generating, sorting, and managing arrays of various data types. The application allows generating arrays with random, sorted, reversed, and partially sorted values. Supported data types are int, float, char, and double. The program offers various sorting algorithms such as QuickSort, ShellSort, HeapSort, and InsertionSort.</p>
 
 <h2 align="left">Features</h2>
 
