@@ -59,7 +59,7 @@ void SortMenu::performSort(int choice, vector<T>& data) {
 }
 
 // Explicit template instantiation for used types
-template void SortMenu::performSort<int>(int choice, std::vector<int>& data);
-template void SortMenu::performSort<float>(int choice, std::vector<float>& data);
-template void SortMenu::performSort<char>(int choice, std::vector<char>& data);
-template void SortMenu::performSort<double>(int choice, std::vector<double>& data);
+template void SortMenu::performSort<int>(int choice, vector<int>& data);
+template void SortMenu::performSort<float>(int choice, vector<float>& data);
+template void SortMenu::performSort<char>(int choice, vector<char>& data);
+template void SortMenu::performSort<double>(int choice, vector<double>& data);
