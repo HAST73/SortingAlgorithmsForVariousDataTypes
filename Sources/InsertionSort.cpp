@@ -1,20 +1,20 @@
 #include "../Headers/InsertionSort.h"
-
-
 #include <fstream>
 #include <iostream>
 #include <vector>
 #include <chrono>
 
+using namespace std;
+
 template<typename T>
-void InsertionSort::sortAndSave(const std::vector<T>& data, const std::string& filename) {
-    // Tworzymy lokalną kopię danych, ponieważ chcemy je posortować
-    std::vector<T> localData = data;
+void InsertionSort::sortAndSave(const vector<T>& data, const string& filename) {
+    // Creating a local copy of the data because we want to sort it
+    vector<T> localData = data;
 
-    // Rozpoczęcie pomiaru czasu
-    auto start = std::chrono::high_resolution_clock::now();
+    // Start of time measurement
+    auto start = chrono::high_resolution_clock::now();
 
-    // Sortowanie przez wstawianie
+    // Insertion sort
     for (int i = 1; i < localData.size(); ++i) {
         T key = localData[i];
         int j = i - 1;
@@ -26,25 +26,24 @@ void InsertionSort::sortAndSave(const std::vector<T>& data, const std::string& f
         localData[j + 1] = key;
     }
 
-    // Zakończenie pomiaru czasu
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double, std::milli> duration = end - start;
+    // End of time measurement
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double, milli> duration = end - start;
 
-    // Zapisanie posortowanych danych do pliku
-    std::ofstream outFile(filename);
+    // Saving sorted data to a file
+    ofstream outFile(filename);
     if (outFile.is_open()) {
         for (const T& element : localData) {
             outFile << element << '\n';
         }
         outFile.close();
-        std::cout << "Sorted data saved to " << filename << ". Time taken: " << duration.count() << " ms" << std::endl;
+        cout << "Sorted data saved to " << filename << ". Time taken: " << duration.count() << " ms" << endl;
     } else {
-        std::cerr << "Unable to open file for writing: " << filename << '\n';
+        cerr << "Unable to open file for writing: " << filename << '\n';
     }
 }
 
-// Eksplikacje instancji szablonu
-template void InsertionSort::sortAndSave<int>(const std::vector<int>& data, const std::string& filename);
-template void InsertionSort::sortAndSave<float>(const std::vector<float>& data, const std::string& filename);
-template void InsertionSort::sortAndSave<char>(const std::vector<char>& data, const std::string& filename);
-template void InsertionSort::sortAndSave<double>(const std::vector<double>& data, const std::string& filename);
+template void InsertionSort::sortAndSave<int>(const vector<int>& data, const string& filename);
+template void InsertionSort::sortAndSave<float>(const vector<float>& data, const string& filename);
+template void InsertionSort::sortAndSave<char>(const vector<char>& data, const string& filename);
+template void InsertionSort::sortAndSave<double>(const vector<double>& data, const string& filename);

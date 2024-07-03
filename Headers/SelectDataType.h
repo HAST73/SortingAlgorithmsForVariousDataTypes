@@ -1,19 +1,19 @@
-#ifndef PROJECT_AIZO_SELECTDATATYPE_H
-#define PROJECT_AIZO_SELECTDATATYPE_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_SELECTDATATYPE_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_SELECTDATATYPE_H
 
 #include <iostream>
 #include <vector>
 #include <string>
 #include "../Headers/ReadFile.h"
 
-// Klasa umożliwiająca wybór typu danych do przetwarzania
+// Class allowing selection of data type for processing
 class SelectDataType {
-    ReadFile fileReader;  // Czytnik plików
+    ReadFile fileReader;  // File reader object
 
 public:
-    void selectDataType();  // Wyświetla menu wyboru typu danych
-    int getSelection();  // Pobiera wybór typu danych od użytkownika
-    void processSelectFromLoadedFile(int selection);  // Obsługuje przetwarzanie danych na podstawie wybranego typu
+    void selectDataType();  // Displays menu for selecting data type
+    int getSelection();  // Gets user's selection of data type
+    void processSelectFromLoadedFile(int selection);  // Handles data processing based on selected type
 };
 
-#endif //PROJECT_AIZO_SELECTDATATYPE_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_SELECTDATATYPE_H

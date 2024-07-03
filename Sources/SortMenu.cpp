@@ -3,9 +3,7 @@
 #include "../Headers/InsertionSort.h"
 #include "../Headers/HeapSort.h"
 #include "../Headers/ShellSort.h"
-
 #include <iostream>
-#include <fstream>
 
 using namespace std;
 
@@ -31,9 +29,9 @@ void SortMenu::performSort(int choice, vector<T>& data) {
     switch (choice) {
         case 1:
         {
-            QuickSort sorter; // Deklaracja obiektu sorter
+            QuickSort sorter; // Declaration of sorter object
             sorter.displaySortMenu();
-            int sortChoice = sorter.getSortChoice(); // Deklaracja zmiennej sortChoice
+            int sortChoice = sorter.getSortChoice(); // Declaration of sortChoice variable
             sorter.performSort(sortChoice, data);
             break;
         }
@@ -60,8 +58,8 @@ void SortMenu::performSort(int choice, vector<T>& data) {
     }
 }
 
-// Potrzebne eksplicytna instancja szablonu dla używanych typów
-template void SortMenu::performSort(int choice, std::vector<int>& data);
-template void SortMenu::performSort(int choice, std::vector<float>& data);
-template void SortMenu::performSort(int choice, std::vector<char>& data);
-template void SortMenu::performSort(int choice, std::vector<double>& data);
+// Explicit template instantiation for used types
+template void SortMenu::performSort<int>(int choice, std::vector<int>& data);
+template void SortMenu::performSort<float>(int choice, std::vector<float>& data);
+template void SortMenu::performSort<char>(int choice, std::vector<char>& data);
+template void SortMenu::performSort<double>(int choice, std::vector<double>& data);

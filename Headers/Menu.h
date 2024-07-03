@@ -7,20 +7,20 @@
 #include <vector>
 #include <string>
 
-// Klasa zarządzająca głównym menu aplikacji
+// Class managing the main application menu
 class Menu {
 public:
-    static bool running;  // Flaga kontynuacji działania programu
+    static bool running;  // Flag for continuing program operation
 
-    void generateGeneralMenu();  // Generuje główne menu
-    int getChoice();  // Pobiera wybór użytkownika
-    void processChoice(int choice);  // Obsługuje wybór użytkownika
-    void generateAndSaveArray(int type);  // Generuje i zapisuje tablice
-    void displayGenerateArrayMenu();  // Wyświetla menu generacji tablic
-    int getArraySize();  // Pobiera rozmiar tablicy od użytkownika
+    void generateGeneralMenu();  // Generates the main menu
+    int getChoice();  // Gets the user's choice
+    void processChoice(int choice);  // Processes the user's choice
+    void generateAndSaveArray(int type);  // Generates and saves arrays
+    void displayGenerateArrayMenu();  // Displays the array generation menu
+    int getArraySize();  // Gets the array size from the user
 
 private:
-    GenerateDifferentArrays arrayGenerator;  // Generator tablic
+    GenerateDifferentArrays arrayGenerator;  // Array generator
 };
 
 #endif // MENU_H

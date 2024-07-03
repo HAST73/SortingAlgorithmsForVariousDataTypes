@@ -1,20 +1,20 @@
-#ifndef PROJECT_AIZO_GENERATEDIFFERENTARRAYS_H
-#define PROJECT_AIZO_GENERATEDIFFERENTARRAYS_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_GENERATEDIFFERENTARRAYS_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_GENERATEDIFFERENTARRAYS_H
 
 #include <vector>
 #include <string>
 
-// Klasa generująca różne typy tablic
+// Class for generating different types of arrays
 class GenerateDifferentArrays {
 public:
-    // Metody do generowania danych
-    void generateRandom(std::vector<int>& data); // Generuje dane losowe
-    void generateSorted(std::vector<int>& data); // Generuje dane posortowane rosnąco
-    void generateReverseSorted(std::vector<int>& data); // Generuje dane posortowane malejąco
-    void generatePartiallySorted(std::vector<int>& data, int sortedPercentage); // Generuje dane częściowo posortowane
+    // Methods for generating data
+    void generateRandom(std::vector<int>& data); // Generates random data
+    void generateSorted(std::vector<int>& data); // Generates sorted data in ascending order
+    void generateReverseSorted(std::vector<int>& data); // Generates sorted data in descending order
+    void generatePartiallySorted(std::vector<int>& data, int sortedPercentage); // Generates partially sorted data
 
-    // Metoda do zapisywania danych do pliku
+    // Method for saving data to a file
     void saveToFile(const std::vector<int>& data, const std::string& filename);
 };
 
-#endif //PROJECT_AIZO_GENERATEDIFFERENTARRAYS_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_GENERATEDIFFERENTARRAYS_H

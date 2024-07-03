@@ -1,6 +1,5 @@
 #include "../Headers/QuickSort.h"
 #include "../Headers/QuickSortHelper.h"
-
 #include <iostream>
 #include <chrono>
 
@@ -64,7 +63,7 @@ void QuickSort::performSort(int choice, vector<T>& data) {
     cout << "Sorting time: " << duration.count() << " ms" << endl;
 }
 
-// Potrzebne eksplicytna instancja szablonu dla używanych typów
+// Explicit template instantiation for the used types
 template void QuickSort::performSort<int>(int choice, vector<int>& data);
 template void QuickSort::performSort<float>(int choice, vector<float>& data);
 template void QuickSort::performSort<char>(int choice, vector<char>& data);

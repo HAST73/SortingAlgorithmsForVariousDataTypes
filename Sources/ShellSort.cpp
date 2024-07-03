@@ -1,44 +1,44 @@
 #include "../Headers/ShellSort.h"
-
-
 #include <fstream>
 #include <iostream>
 #include <vector>
 #include <chrono>
 #include <cmath>
 
+using namespace std;
+
 void ShellSort::displayGapMenu() {
-    std::cout << "Select gap sequence for ShellSort:" << std::endl;
-    std::cout << "1. Shell sequence" << std::endl;
-    std::cout << "2. Knuth sequence" << std::endl;
-    std::cout << "3. Hibbard sequence" << std::endl;
-    std::cout << "Choice: ";
+    cout << "Select gap sequence for ShellSort:" << endl;
+    cout << "1. Shell sequence" << endl;
+    cout << "2. Knuth sequence" << endl;
+    cout << "3. Hibbard sequence" << endl;
+    cout << "Choice: ";
 }
 
 ShellSort::GapSequence ShellSort::getUserGapChoice() {
     int choice;
-    std::cin >> choice;
+    cin >> choice;
     switch (choice) {
         case 1: return SHELL;
         case 2: return KNUTH;
         case 3: return HIBBARD;
         default:
-            std::cout << "Invalid choice, defaulting to Shell sequence." << std::endl;
+            cout << "Invalid choice, defaulting to Shell sequence." << endl;
             return SHELL;
     }
 }
 
-std::vector<int> ShellSort::generateGaps(size_t size, GapSequence sequence) {
-    std::vector<int> gaps;
+vector<int> ShellSort::generateGaps(size_t size, GapSequence sequence) {
+    vector<int> gaps;
     if (sequence == KNUTH) {
         for (int k = 1; ; ) {
-            int gap = (std::pow(3, k++) - 1) / 2;
+            int gap = (pow(3, k++) - 1) / 2;
             if (gap > size) break;
             gaps.push_back(gap);
         }
     } else if (sequence == HIBBARD) {
         for (int k = 1; ; k++) {
-            int gap = std::pow(2, k) - 1;
+            int gap = pow(2, k) - 1;
             if (gap > size) break;
             gaps.push_back(gap);
         }
@@ -47,14 +47,14 @@ std::vector<int> ShellSort::generateGaps(size_t size, GapSequence sequence) {
             gaps.push_back(gap);
         }
     }
-    std::reverse(gaps.begin(), gaps.end()); // Ensure the gaps are in descending order
+    reverse(gaps.begin(), gaps.end()); // Ensure the gaps are in descending order
     return gaps;
 }
 
 template<typename T>
-void ShellSort::shellSort(std::vector<T>& data, GapSequence gapSequence) {
-    std::vector<int> gaps = generateGaps(data.size(), gapSequence);
-    auto start = std::chrono::high_resolution_clock::now();  // Rozpoczęcie pomiaru czasu
+void ShellSort::shellSort(vector<T>& data, GapSequence gapSequence) {
+    vector<int> gaps = generateGaps(data.size(), gapSequence);
+    auto start = chrono::high_resolution_clock::now();  // Start time measurement
 
     for (int gap : gaps) {
         for (size_t i = gap; i < data.size(); i++) {
@@ -67,45 +67,45 @@ void ShellSort::shellSort(std::vector<T>& data, GapSequence gapSequence) {
         }
     }
 
-    auto end = std::chrono::high_resolution_clock::now();  // Zakończenie pomiaru czasu
-    std::chrono::duration<double, std::milli> duration = end - start;  // Obliczenie trwania
-    std::cout << "Sorting completed in " << duration.count() << " ms" << std::endl;  // Wypisanie czasu
+    auto end = chrono::high_resolution_clock::now();  // End time measurement
+    chrono::duration<double, milli> duration = end - start;  // Calculate duration
+    cout << "Sorting completed in " << duration.count() << " ms" << endl;  // Print time taken
 }
 
 template<typename T>
-void ShellSort::sortAndSave(const std::vector<T>& data, const std::string& filename, GapSequence gapSequence) {
-    std::vector<T> localData = data;
-    shellSort(localData, gapSequence); // Wykonanie sortowania
+void ShellSort::sortAndSave(const vector<T>& data, const string& filename, GapSequence gapSequence) {
+    vector<T> localData = data;
+    shellSort(localData, gapSequence); // Perform sorting
 
-    // Generowanie pełnej nazwy pliku na podstawie wybranej sekwencji odstępów
-    std::string fullFilename = filename + "_";
+    // Generate full filename based on selected gap sequence
+    string fullFilename = filename + "_";
     switch (gapSequence) {
         case SHELL: fullFilename += "default"; break;
         case KNUTH: fullFilename += "knuth"; break;
         case HIBBARD: fullFilename += "hibbard"; break;
     }
-    fullFilename += ".txt"; // Dodanie rozszerzenia pliku
+    fullFilename += ".txt"; // Add file extension
 
-    // Zapis danych do pliku
-    std::ofstream outFile(fullFilename);
+    // Write data to file
+    ofstream outFile(fullFilename);
     if (outFile.is_open()) {
         for (const T& element : localData) {
             outFile << element << '\n';
         }
         outFile.close();
-        std::cout << "Data saved to " << fullFilename << std::endl;
+        cout << "Data saved to " << fullFilename << endl;
     } else {
-        std::cerr << "Unable to open file for writing: " << fullFilename << '\n';
+        cerr << "Unable to open file for writing: " << fullFilename << '\n';
     }
 }
 
 // Explicit template instantiation
-template void ShellSort::shellSort<int>(std::vector<int>& data, GapSequence gapSequence);
-template void ShellSort::shellSort<float>(std::vector<float>& data, GapSequence gapSequence);
-template void ShellSort::shellSort<char>(std::vector<char>& data, GapSequence gapSequence);
-template void ShellSort::shellSort<double>(std::vector<double>& data, GapSequence gapSequence);
+template void ShellSort::shellSort<int>(vector<int>& data, GapSequence gapSequence);
+template void ShellSort::shellSort<float>(vector<float>& data, GapSequence gapSequence);
+template void ShellSort::shellSort<char>(vector<char>& data, GapSequence gapSequence);
+template void ShellSort::shellSort<double>(vector<double>& data, GapSequence gapSequence);
 
-template void ShellSort::sortAndSave<int>(const std::vector<int>& data, const std::string& filename, GapSequence gapSequence);
-template void ShellSort::sortAndSave<float>(const std::vector<float>& data, const std::string& filename, GapSequence gapSequence);
-template void ShellSort::sortAndSave<char>(const std::vector<char>& data, const std::string& filename, GapSequence gapSequence);
-template void ShellSort::sortAndSave<double>(const std::vector<double>& data, const std::string& filename, GapSequence gapSequence);
+template void ShellSort::sortAndSave<int>(const vector<int>& data, const string& filename, GapSequence gapSequence);
+template void ShellSort::sortAndSave<float>(const vector<float>& data, const string& filename, GapSequence gapSequence);
+template void ShellSort::sortAndSave<char>(const vector<char>& data, const string& filename, GapSequence gapSequence);
+template void ShellSort::sortAndSave<double>(const vector<double>& data, const string& filename, GapSequence gapSequence);

@@ -1,17 +1,17 @@
-#ifndef PROJECT_AIZO_QUICKSORT_H
-#define PROJECT_AIZO_QUICKSORT_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_QUICKSORT_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_QUICKSORT_H
 
 #include <vector>
 #include <iostream>
 
-// Klasa realizująca sortowanie szybkie (QuickSort)
+// Class implementing quick sort (QuickSort)
 class QuickSort {
 public:
-    void displaySortMenu(); // Wyświetla menu wyboru typu pivota
-    int getSortChoice(); // Pobiera wybór użytkownika
+    void displaySortMenu(); // Displays the menu for selecting the pivot type
+    int getSortChoice(); // Gets the user's choice
 
     template<typename T>
-    void performSort(int choice, std::vector<T>& data); // Wykonuje sortowanie na podstawie wybranego typu pivota
+    void performSort(int choice, std::vector<T>& data); // Performs sorting based on the selected pivot type
 };
 
-#endif //PROJECT_AIZO_QUICKSORT_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_QUICKSORT_H

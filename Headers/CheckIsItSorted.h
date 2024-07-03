@@ -1,13 +1,13 @@
-#ifndef PROJECT_AIZO_CHECKISITSORTED_H
-#define PROJECT_AIZO_CHECKISITSORTED_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_CHECKISITSORTED_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_CHECKISITSORTED_H
 
 #include <vector>
 
-// Klasa sprawdzająca, czy tablica jest posortowana
+// Class to check if an array is sorted
 class CheckIsItSorted {
 public:
     template<typename T>
-    static bool isSorted(const std::vector<T>& data); // Metoda statyczna sprawdzająca posortowanie
+    static bool isSorted(const std::vector<T>& data); // Static method to check if the array is sorted
 };
 
-#endif //PROJECT_AIZO_CHECKISITSORTED_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_CHECKISITSORTED_H

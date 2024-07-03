@@ -1,17 +1,17 @@
-#ifndef PROJECT_AIZO_QUICKSORTHELPER_H
-#define PROJECT_AIZO_QUICKSORTHELPER_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_QUICKSORTHELPER_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_QUICKSORTHELPER_H
 
 #include <vector>
 #include <string>
 
-// Klasa zawierająca algorytm QuickSort
+// Class containing the QuickSort algorithm
 template<typename T>
 class QuickSortHelper {
 public:
-    enum PivotType { LEFT, MIDDLE, RIGHT, RANDOM }; // Typy pivota
+    enum PivotType { LEFT, MIDDLE, RIGHT, RANDOM }; // Pivot types
 
-    static void quickSort(std::vector<T>& data, int left, int right, PivotType pivotType); // Metoda QuickSort
-    static void saveToFile(const std::vector<T>& data, const std::string& filename); // Zapisuje dane do pliku
+    static void quickSort(std::vector<T>& data, int left, int right, PivotType pivotType); // QuickSort method
+    static void saveToFile(const std::vector<T>& data, const std::string& filename); // Saves data to a file
 };
 
-#endif //PROJECT_AIZO_QUICKSORTHELPER_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_QUICKSORTHELPER_H

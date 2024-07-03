@@ -1,24 +1,24 @@
-#ifndef PROJECT_AIZO_SHELLSORT_H
-#define PROJECT_AIZO_SHELLSORT_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_SHELLSORT_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_SHELLSORT_H
 
 #include <vector>
 #include <string>
 #include <functional>
 
-// Klasa realizująca sortowanie Shella
+// Class implementing Shell sort
 class ShellSort {
 public:
-    enum GapSequence { SHELL, KNUTH, HIBBARD };  // Definicja dostępnych sekwencji odstępów
+    enum GapSequence { SHELL, KNUTH, HIBBARD };  // Definition of available gap sequences
 
     template<typename T>
-    static void shellSort(std::vector<T>& data, GapSequence gapSequence);  // Sortuje dane
+    static void shellSort(std::vector<T>& data, GapSequence gapSequence);  // Sorts the data
 
     template<typename T>
-    static void sortAndSave(const std::vector<T>& data, const std::string& filename, GapSequence gapSequence);  // Sortuje dane i zapisuje do pliku
+    static void sortAndSave(const std::vector<T>& data, const std::string& filename, GapSequence gapSequence);  // Sorts the data and saves to file
 
-    static void displayGapMenu();  // Wyświetla menu wyboru sekwencji odstępów
-    static GapSequence getUserGapChoice();  // Pobiera wybór sekwencji od użytkownika
-    static std::vector<int> generateGaps(size_t size, GapSequence sequence);  // Generuje sekwencję odstępów
+    static void displayGapMenu();  // Displays menu for selecting gap sequence
+    static GapSequence getUserGapChoice();  // Gets user's choice of gap sequence
+    static std::vector<int> generateGaps(size_t size, GapSequence sequence);  // Generates gap sequence
 };
 
-#endif //PROJECT_AIZO_SHELLSORT_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_SHELLSORT_H

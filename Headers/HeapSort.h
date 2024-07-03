@@ -1,24 +1,24 @@
-#ifndef PROJECT_AIZO_HEAPSORT_H
-#define PROJECT_AIZO_HEAPSORT_H
+#ifndef SORTINGALGORITHMSFORVARIOUSDATATYPES_HEAPSORT_H
+#define SORTINGALGORITHMSFORVARIOUSDATATYPES_HEAPSORT_H
 
 #include <vector>
 #include <string>
 
-// Klasa realizująca algorytm sortowania przez kopcowanie
+// Class implementing the heap sort algorithm
 class HeapSort {
 public:
     template<typename T>
-    static void heapSort(std::vector<T>& data); // Metoda realizująca sortowanie przez kopcowanie
+    static void heapSort(std::vector<T>& data); // Method implementing heap sort
 
     template<typename T>
-    static void sortAndSave(const std::vector<T>& data, const std::string& filename); // Zapisuje posortowane dane do pliku
+    static void sortAndSave(const std::vector<T>& data, const std::string& filename); // Saves sorted data to a file
 
 private:
     template<typename T>
-    static void heapify(std::vector<T>& data, int n, int i); // Funkcja pomocnicza do tworzenia kopca
+    static void heapify(std::vector<T>& data, int n, int i); // Helper function to create a heap
 
     template<typename T>
-    static void buildHeap(std::vector<T>& data); // Buduje kopiec na podstawie danych
+    static void buildHeap(std::vector<T>& data); // Builds a heap from the data
 };
 
-#endif //PROJECT_AIZO_HEAPSORT_H
+#endif //SORTINGALGORITHMSFORVARIOUSDATATYPES_HEAPSORT_H
